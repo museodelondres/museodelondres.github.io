@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header id="header" id="home">
+        <div class="container header-top">
+            <div class="row">
+                <div class="col-6 top-head-left">
+                    <ul>
+                        <li><a href="#">Visitanos</a></li>
+                        <li><a href="#">Compra un ticket</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 top-head-right">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    </ul>
+                </div>			  			
+            </div>
+        </div>
+        <hr>
+      <div class="container">
+          <div class="row align-items-center justify-content-between d-flex">
+            <div id="logo">
+              <a href="index.html"><img src="img/logo.png" alt="" title="" /></a>
+            </div>
+            <nav id="nav-menu-container">
+              <ul class="nav-menu">
+                <li class="menu-active"><a href="index.html">Home</a></li>
+                <li><a href="about.html">Antropología</a></li>
+                <li><a href="gallery.html">Historia Natural</a></li>
+                <li><a href="event.html">Prehistoria</a></li>
+                <li><a href="ticket.html">Difusión cultural</a></li>
+                <li><a href="blog-home.html">Arte </a></li>
+                <li><a href="contact.html">Folklore</a></li>
+                <li class="menu-has-children"><a href="">Fondo de donaciones</a>
+                  <ul>
+                    <li><a href="blog-single.html">Empresas</a></li>
+                    <li><a href="category.html">Colaboradores</a></li>
+                    <li><a href="elements.html">Artistas</a></li>
+                  </ul>
+                </li>			          
+              </ul>
+            </nav><!-- #nav-menu-container -->		    		
+          </div>
+      </div>
+    </header><!-- 
+    <form class="container" id="imagenSistema">
+        <p><b>Insertar imagen dentro de la pagina</b></p>
+        <br>
+        <h1>ID</h1>
+        <input id="id" type="text" placeholder="inserta el titulo">
+        <h1>Titulo</h1>
+        <input  id="titulo" type="text" placeholder="inserta el titulo">
+        <h2>Categoria</h2>
+        <input  id="categoria" type="text" placeholder="inserta categoria">
+        <h2>Autor</h2>
+        <input  id="autor" type="text" placeholder="inseta autor">
+        <h2>Personajes</h2>
+        <input  id="personajes" type="text" placeholder="inserta personajes">
+        <h2>Lugar</h2>
+        <input  id="lugar_toma" type="text" placeholder="inserta lugar de toma">
+        <h2>Tecnicas</h2>
+        <input  id="tecnicas" type="text" placeholder="inserta tecnicas">
+        <h2>Temas</h2>
+        <input  id="temas" type="text" placeholder="inserta tema">
+        <h2>Insertar Imagen</h2>
+        <br><br><br>
+        <button id="enviar">Enviar</button>
+        <style>
+            body{text-align: center;}
+        </style>
+    </form> 
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyBDUhSvYeKSrOEXt0oH47-676gbVhnp1A0",
+          authDomain: "museo-85b70.firebaseapp.com",
+          databaseURL: "https://museo-85b70-default-rtdb.firebaseio.com",
+          projectId: "museo-85b70",
+          storageBucket: "museo-85b70.appspot.com",
+          messagingSenderId: "862215816865",
+          appId: "1:862215816865:web:c1bc35199fe3299264d2e0",
+          measurementId: "G-4P3RQZBW4G"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        import {getDatabase, ref, get, set, child, update, remove}
+        from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js" 
+
+        const db = getDatabase();
+
+        var titulo = document.querySelector("#titulo");
+        var categoria = document.querySelector("#categoria");
+        var autor = document.querySelector("#autor");
+        var personajes = document.querySelector("#personajes");
+        var lugar_toma = document.querySelector("#lugar_toma");
+        var tecnicas = document.queryselector("#tecnicas");
+        var temas = document.querySelector("#temas");
+        var insertar_imagen = document.querySelector("#insertar_imagen");
+
+        
+        var enviar = document.querySelector("#enviar");
+
+        function InsertarInfo(){
+            set(ref(db,"https://museo-85b70-default-rtdb.firebaseio.com/Museo" + id.value),{
+                ID: id.value,
+                Titulo: titulo.value,
+                Categoria: categoria.value,
+                Autor: autor.value,
+                Personajes: personajes.value,
+                Lugar: lugar_toma.value,
+                Tecnicas: tecnicas.value,
+                Temas: temas.value,
+
+            })
+            .then(()=>{
+                alert("La informacion se a almacenado correctamente")
+            })
+            .catch((error)=>{ 
+                alert("Error")
+            })
+        }
+
+        enviarBtn.addEventListener('click', InsertarInfo);
+
+      </script>
+</body>
+</html>       
+
+      </script>
+</body>
+</html>
